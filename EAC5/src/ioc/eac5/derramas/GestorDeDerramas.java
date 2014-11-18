@@ -27,7 +27,7 @@ public class GestorDeDerramas {
     String descripcion = " ";
     static int cont = 0;
     int opcion = 0;
-    int vecinos = 25;
+    int vecinos = GestorDeVecinos.numPisos;
     int tipoC = 0;
     static Derrama[] d = new Derrama[20];
 
@@ -71,9 +71,12 @@ public class GestorDeDerramas {
     public void tipoDerrama() {
         GestorDeVecinos.tratarDatosGestoria();
         for (int i = 0; i < cont; i++) {
-            if (d[i].getTipoDerrama() == 'a') {
+            if (d[i].getTipoDerrama() == 'a' || d[i].getTipoDerrama() == 'A') {
                 System.out.println("Tipo A");
+
                 GestorDeVecinos.tratarDatosGestoria();
+
+                //gestor.tratarDatosGestoria();
                 for (int j = 0; j < GestorDeVecinos.datosVecino.length; j++) {
                     double pagar = GestorDeVecinos.datosVecino[j].getCoeficiente();
                     double pagarA = (d[i].getImporte() / pagar) / 100;

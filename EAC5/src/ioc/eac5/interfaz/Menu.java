@@ -72,6 +72,7 @@ public class Menu {
 
                 break;
             case 2:
+
                 cabeceraMenuDerramas();
                 menuDerramas();
 
@@ -332,15 +333,33 @@ public class Menu {
                 } while (preguntar);
                 GestorDeVecinos.solicitarDatosModificacion(cargoElegido, i);
 */
+
+                if (importado) {
+                    cabeceraMenuDerramas();
+                    menuDerramas();
+                } else {
+                    System.out.println("\n-------------------------------Por favor, introduzca los datos de gestoría primero.------------------------------------");
+                }
+                menuPrincipal();
                 break;
             case 4:
-                cabeceraMenuCargos();
-                menuCargos();
+                if (importado) {
+                    cabeceraMenuCargos();
+                    menuCargos();
+                } else {
+                    System.out.println("\n-------------------------------Por favor, introduzca los datos de gestoría primero.------------------------------------");
+                }
+                menuPrincipal();
+                break;
+
+            case 5:
+                despedida();
                 break;
             default:
 
-                System.out.println("Opción no válida. Por favor, introduzca una opción válida.");
-
+                System.out.println("\n-------------------------------Por favor, introduzca los datos de gestoría primero.------------------------------------");
+                menuPrincipal();
+                break;
         }
     }
 }

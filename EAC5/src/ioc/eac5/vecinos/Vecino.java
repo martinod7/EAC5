@@ -14,6 +14,7 @@ public class Vecino {
     private String identificador;
     private String nombrePiso;
     private String nombrePropietario;
+<<<<<<< HEAD
     private int telefono;
     private char presencia; //N -> ausente, S -> presente
     private double coeficiente;
@@ -50,6 +51,7 @@ public class Vecino {
     }
     
     public void setTelefono(int telefono){
+
         this.telefono=telefono;
     }
     
