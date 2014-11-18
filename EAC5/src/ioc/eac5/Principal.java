@@ -38,10 +38,6 @@ public class Principal {
 
         //Salida.menuPrincipal();
 
-
-  
-
-
     }
 
     public void inicio() {
