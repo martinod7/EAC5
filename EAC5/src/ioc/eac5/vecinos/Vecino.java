@@ -21,7 +21,9 @@ public class Vecino {
     private int tipoC; //0 -> exento, 1 -> no exento
     private char cargo; //Cargo que ocupa en la junta
     private double totalAPagar;
-
+    private double gastosTipoA; //Total del dinero a pagar del tipo A
+    private double gastosTipoB; //Total del dinero a pagar del tipo B
+    private double gastosTipoC; //Total del dinero a pagar del tipo C
     //Métodos para acceder y modificar los datos de Vecino
     public String getIdentificador() {
         return identificador;
@@ -88,10 +90,34 @@ public class Vecino {
         this.cargo = cargo;
     }
 
+
     public double getTotalAPagar() {
         return totalAPagar;
     }
     public void setTotalAPagar(){
         this.totalAPagar = totalAPagar;
+
+    }
+   public double getGastosTipoA(){
+        return gastosTipoB;
+    }
+    
+    public void setGastosTipoA(double gastosTipoA){
+        this.gastosTipoA = gastosTipoA;
+    }
+    public double getGastosTipoB(){
+        return gastosTipoB;
+    }
+    
+    public void setGastosTipoB(double gastosTipoB){
+        this.gastosTipoB = gastosTipoB;
+    }
+    public double getGastosTipoC(){
+        return gastosTipoC;
+    }
+    
+    public void setGastosTipoC(double gastosTipoC){
+        this.gastosTipoC = gastosTipoC;
+
     }
 }
