@@ -23,21 +23,6 @@ public class Principal {
         Principal programa = new Principal();
 
         programa.inicio();
-
-
-        //Salida.menuPrincipal();
-        //prueba1.añadirDerrama();
-        //prueba1.listarDerrama();
-        //prueba1.modificarDerramas();
-        //prueba1.tipoDerrama();
-
-        //Salida.menuPrincipal();
-        //prueba1.añadirDerrama();
-        //prueba1.modificarDerramas();
-
-
-        //Salida.menuPrincipal();
-
     }
 
     public void inicio() {

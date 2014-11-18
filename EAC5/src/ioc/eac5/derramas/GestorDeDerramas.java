@@ -4,9 +4,6 @@ import java.util.Scanner;
 import ioc.eac5.vecinos.GestorDeVecinos;
 import ioc.eac5.interfaz.Menu;
 import ioc.eac5.derramas.Derrama;
-//import ioc.eac5.interfaz.Entrada;
-//import ioc.eac5.interfaz.Salida;
-//import java.util.*;
 
 /**
  * Gestiona el tipo de derrama segun la opcion elegida
@@ -16,7 +13,6 @@ import ioc.eac5.derramas.Derrama;
 public class GestorDeDerramas {
 
     Scanner leer = new Scanner(System.in);
-    //Salida salida = new Salida();
     GestorDeVecinos GestorDeVecinos = new GestorDeVecinos();
     Double importe = 0.0;// variable para almacenar el importe 
     char tipo = ' ';//variable para almacenar el tipo de derrama 
@@ -32,7 +28,7 @@ public class GestorDeDerramas {
      * y la variable cont hace que podamos mas tarde poder tratar estos datos
      * introducidos en otros metodos, cada vez que vayamos añadiendo una derrama
      * este contador irá aumentando
-     * 
+     *
      * Podemos repetir la operacion tantas veces como selecionemos la opcion 1
      */
     public void añadirDerrama() {
@@ -65,14 +61,14 @@ public class GestorDeDerramas {
     }
 
     /**
-     * Este metodo se encarga de recorrer el arreglo de objetos para mostrar las datos almacenados anteriormente
+     * Este metodo se encarga de recorrer el arreglo de objetos para mostrar las
+     * datos almacenados anteriormente
      */
     public static void listarDerrama() {
 
         if (cont > 0) {
             for (int i = 0; i < cont; i++) {
                 System.out.println("#" + (i + 1) + " Importe: " + d[i].getImporte() + " Tipo: " + d[i].getTipoDerrama() + " Descripción: " + d[i].getDescripcion() + "");
-
             }
         } else {
             System.out.println("No existen presupuestos");
@@ -98,40 +94,26 @@ public class GestorDeDerramas {
 
                 GestorDeVecinos.tratarDatosGestoria();
 
-                //System.out.println("Tipo A");
-                //gestor.tratarDatosGestoria();
                 for (int j = 0; j < GestorDeVecinos.datosVecino.length; j++) {
                     double pagar = GestorDeVecinos.datosVecino[j].getCoeficiente();
                     pagarA = d[i].getImporte() * pagar;
-                    //pagarA = Math.round(pagarA);
-                    //System.out.println(GestorDeVecinos.datosVecino[j].getNombrePiso() + " con coeficiente " + GestorDeVecinos.datosVecino[j].getCoeficiente() + " debe pagar " + pagarA);
+
                     GestorDeVecinos.datosVecino[j].setGastosTipoA(pagarA);
                 }
             } else if (d[i].getTipoDerrama() == 'b' || d[i].getTipoDerrama() == 'B') {
-                //System.out.println("Tipo B");
-                for (int k = 0; k < GestorDeVecinos.datosVecino.length; k++) {
-                    //System.out.print(GestorDeVecinos.datosVecino[k].getIdentificador() + " " + GestorDeVecinos.datosVecino[k].getNombrePiso() + " " + GestorDeVecinos.datosVecino[k].getNombrePropietario() + " " + GestorDeVecinos.datosVecino[k].getPresencia() + " " + GestorDeVecinos.datosVecino[k].getTelefono() + " " + GestorDeVecinos.datosVecino[k].getTipoC() + "\n");
 
+                for (int k = 0; k < GestorDeVecinos.datosVecino.length; k++) {
                 }
-                //System.out.println("\n------------------------------------------------------------------");
                 pagarB = d[i].getImporte() / vecinos;
-                //System.out.println("Cada vecino debe abonar: " + pagarB + "€");
                 GestorDeVecinos.datosVecino[i].setGastosTipoB(pagarB);
             } else if (d[i].getTipoDerrama() == 'c' || d[i].getTipoDerrama() == 'C') {
-                //System.out.println("Tipo C");
+
                 int contadorC = 0;
                 for (int l = 0; l < GestorDeVecinos.datosVecino.length; l++) {
-
-                    //     tipoC = GestorDeVecinos.datosVecino[l].getTipoC();
                     if (GestorDeVecinos.datosVecino[l].getTipoC() == 1) {
                         contadorC = contadorC + 1;
-
-                        // System.out.print(GestorDeVecinos.datosVecino[l].getIdentificador() + " " + GestorDeVecinos.datosVecino[l].getNombrePiso() + " " + GestorDeVecinos.datosVecino[l].getNombrePropietario() + " " + GestorDeVecinos.datosVecino[l].getPresencia() + " " + GestorDeVecinos.datosVecino[l].getTelefono() + " " + GestorDeVecinos.datosVecino[l].getTipoC() + " debe abonar " + pagarC + "€\n");
                     }
 
-// else {
-                    // System.out.print(GestorDeVecinos.datosVecino[l].getIdentificador() + " " + GestorDeVecinos.datosVecino[l].getNombrePiso() + " " + GestorDeVecinos.datosVecino[l].getNombrePropietario() + " " + GestorDeVecinos.datosVecino[l].getPresencia() + " " + GestorDeVecinos.datosVecino[l].getTelefono() + " " + GestorDeVecinos.datosVecino[l].getTipoC() + " EXEMPT\n");
-                    // }
                 }
                 double gastosC = d[i].getImporte() / contadorC;
                 for (int w = 0; w < GestorDeVecinos.datosVecino.length; w++) {
@@ -142,27 +124,27 @@ public class GestorDeDerramas {
             }
 
         }
-        
+
         System.out.println("\n Relación de gastos detallados por propietario: ");
         System.out.println("---------------------------------------------------");
         for (int i = 0; i < GestorDeVecinos.datosVecino.length; i++) {
 
-            System.out.println("-" + GestorDeVecinos.datosVecino[i].getNombrePiso() + ": "+(GestorDeVecinos.datosVecino[i].getGastosTipoA() + GestorDeVecinos.datosVecino[i].getGastosTipoB() + GestorDeVecinos.datosVecino[i].getGastosTipoC()));
-
             System.out.println("-" + GestorDeVecinos.datosVecino[i].getNombrePiso() + ": " + (GestorDeVecinos.datosVecino[i].getGastosTipoA() + GestorDeVecinos.datosVecino[i].getGastosTipoB() + GestorDeVecinos.datosVecino[i].getGastosTipoC()));
 
+            System.out.println("-" + GestorDeVecinos.datosVecino[i].getNombrePiso() + ": " + (GestorDeVecinos.datosVecino[i].getGastosTipoA() + GestorDeVecinos.datosVecino[i].getGastosTipoB() + GestorDeVecinos.datosVecino[i].getGastosTipoC()));
 
         }
     }
 
     /**
-     * Primero de todo te pedira cual de las derramas sera con la que trabajaremos
-     * segun la opción que se eliga por teclado , mediante los sets
-     * modificaremos los datos para posteriormente mostrar los nuevos valores, se especifica 
+     * Primero de todo te pedira cual de las derramas sera con la que
+     * trabajaremos segun la opción que se eliga por teclado , mediante los sets
+     * modificaremos los datos para posteriormente mostrar los nuevos valores,
+     * se especifica
+     * 
      */
     public void modificarDerramas() {
         int numero = 0;
-
 
         for (int i = 0; i < cont; i++) {
             if (d[i].getImporte() >= 0) {
@@ -203,8 +185,6 @@ public class GestorDeDerramas {
 
                 boolean correcto = false;
 
-
-                
                 for (int i = 0; i < cont; i++) {
                     System.out.println("Importe: " + d[i].getImporte() + " Tipo: " + d[i].getTipoDerrama() + " Descripción: " + d[i].getDescripcion() + "");
                 }
@@ -221,7 +201,6 @@ public class GestorDeDerramas {
                         }
                     }
                 } while (!correcto);
-
 
                 break;
 
