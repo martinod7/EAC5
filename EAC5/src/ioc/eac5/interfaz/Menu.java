@@ -233,7 +233,11 @@ public class Menu {
                 break;
 
             case 3:
-                derramas.listarDerrama();
+
+                
+
+                GestorDeDerramas.listarDerrama();
+
 
                 break;
 
