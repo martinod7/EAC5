@@ -29,7 +29,7 @@ public class GestorDeDerramas {
      * introducidos en otros metodos, cada vez que vayamos añadiendo una derrama
      * este contador irá aumentando
      *
-     * Podemos repetir la operacion tantas veces como selecionemos la opcion 1
+     * Podemos repetir la operacion tantas veces como selecionemos la opcion 1 
      */
     public void añadirDerrama() {
 
